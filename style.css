@@ -1,0 +1,132 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* Header & Navigasi */
+header {
+    background: #ffffff;
+    padding: 20px 0;
+    border-bottom: 2px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #2980b9;
+}
+
+/* Hero Section (Gaya Google Sites) */
+.hero-sites {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg'); /* Ganti dengan gambar kamu */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+/* Section Style */
+.section {
+    padding: 60px 0;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+.content-box, .conclusion-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.info-item {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.gray-bg {
+    background: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #2c3e50;
+    color: white;
+}
+
+/* Tombol WA Melayang */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 9999;
+}
