@@ -11,12 +11,14 @@ body {
     color: #333;
     background-color: #fcfcfc;
     scroll-behavior: smooth;
+    /* Menghilangkan overflow horizontal jika ada elemen yang terlalu lebar */
+    overflow-x: hidden; 
 }
 
 .container {
     width: 85%;
     max-width: 1100px;
-    margin: auto;
+    margin: 0 auto; /* Memastikan container di tengah */
 }
 
 /* --- Header & Navigasi --- */
@@ -60,10 +62,13 @@ nav ul li a:hover {
 
 /* --- Hero Section (Banner Utama) --- */
 .hero-sites {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Kegiatan 1.png'); 
+    /* Overlay diperhalus, background-position dipastikan center */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Kegiatan 1.png'); 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 450px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,15 +76,20 @@ nav ul li a:hover {
     text-align: center;
 }
 
+.hero-content {
+    padding: 0 20px;
+}
+
 .hero-content h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
+    font-size: 2.5rem; /* Ukuran lebih fleksibel untuk berbagai layar */
+    letter-spacing: 1px;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 /* --- Section General Style --- */
 .section {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .gray-bg {
@@ -88,11 +98,12 @@ nav ul li a:hover {
 
 .title {
     text-align: center;
-    margin-bottom: 50px;
+    margin: 0 auto 50px auto;
     font-size: 2rem;
     color: #2c3e50;
     border-bottom: 4px solid #3498db;
     padding-bottom: 10px;
+    display: table; /* Supaya border-bottom hanya sepanjang teks */
 }
 
 .content-box, .conclusion-box {
@@ -100,4 +111,33 @@ nav ul li a:hover {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    text
+    text-align: center; /* Konten di dalam box menjadi rata tengah */
+    margin-bottom: 20px;
+}
+
+/* --- Footer --- */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 40px 0;
+    width: 100%;
+    text-align: center; /* Memastikan teks di tengah */
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Responsif Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .container {
+        width: 90%;
+    }
+}
