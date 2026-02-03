@@ -81,40 +81,64 @@ nav ul li a:hover {
     margin-bottom: 5px;
 }
 
-/* --- Galeri (Perbaikan Utama) --- */
+/* --- Fasilitas Unggulan (Penyesuaian 3 Foto) --- */
 .gallery-grid {
     display: grid;
-    /* Membuat grid otomatis: minimal 280px per gambar */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    /* Mengunci maksimal 3 kolom di layar lebar agar simetris */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
     margin-top: 30px;
 }
 
 .gallery-card {
     background: #fff;
-    padding: 15px;
+    /* Menghapus padding agar gambar bisa menyentuh pinggir card (opsional) */
+    padding: 0; 
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    overflow: hidden; /* Memastikan gambar tetap di dalam radius */
 }
 
 .gallery-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
 }
 
 .gallery-card img {
     width: 100%;
-    height: 220px; /* Menyeragamkan tinggi gambar */
-    object-fit: cover; /* Gambar dipotong rapi, tidak gepeng */
-    border-radius: 8px;
+    height: 250px; /* Tinggi foto sedikit dinaikkan agar lebih estetik */
+    object-fit: cover; /* KUNCI: Foto tidak akan gepeng */
+    display: block;
 }
 
 .caption {
-    margin-top: 15px;
-    font-size: 0.95rem;
-    font-weight: bold;
-    color: #555;
+    padding: 20px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* --- Responsif Khusus Galeri --- */
+@media (max-width: 992px) {
+    .gallery-grid {
+        /* Di tablet, tampilkan 2 kolom dulu agar tidak terlalu sempit */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        /* Di HP, 1 kolom saja agar foto besar dan jelas */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-card img {
+        height: 200px; /* Sedikit lebih pendek di HP */
+    }
 }
 
 /* --- Section General --- */
@@ -205,3 +229,4 @@ footer .container {
         font-size: 1.6rem;
     }
 }
+
