@@ -11,14 +11,13 @@ body {
     color: #333;
     background-color: #fcfcfc;
     scroll-behavior: smooth;
-    /* Menghilangkan overflow horizontal jika ada elemen yang terlalu lebar */
     overflow-x: hidden; 
 }
 
 .container {
-    width: 85%;
+    width: 90%; /* Ditingkatkan agar lebih lega di layar kecil */
     max-width: 1100px;
-    margin: 0 auto; /* Memastikan container di tengah */
+    margin: 0 auto;
 }
 
 /* --- Header & Navigasi --- */
@@ -60,9 +59,8 @@ nav ul li a:hover {
     color: #2980b9;
 }
 
-/* --- Hero Section (Banner Utama) --- */
+/* --- Hero Section --- */
 .hero-sites {
-    /* Overlay diperhalus, background-position dipastikan center */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Kegiatan 1.png'); 
     background-size: cover;
     background-position: center;
@@ -76,24 +74,52 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.hero-content {
-    padding: 0 20px;
-}
-
 .hero-content h1 {
-    font-size: 2.5rem; /* Ukuran lebih fleksibel untuk berbagai layar */
+    font-size: 3rem;
     letter-spacing: 1px;
-    margin-bottom: 10px;
     text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
-/* --- Section General Style --- */
+/* --- Galeri (Perbaikan Utama) --- */
+.gallery-grid {
+    display: grid;
+    /* Membuat grid otomatis: minimal 280px per gambar */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.gallery-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px; /* Menyeragamkan tinggi gambar */
+    object-fit: cover; /* Gambar dipotong rapi, tidak gepeng */
+    border-radius: 8px;
+}
+
+.caption {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* --- Section General --- */
 .section {
-    padding: 60px 0;
-}
-
-.gray-bg {
-    background: #f4f7f6;
+    padding: 80px 0;
 }
 
 .title {
@@ -103,7 +129,7 @@ nav ul li a:hover {
     color: #2c3e50;
     border-bottom: 4px solid #3498db;
     padding-bottom: 10px;
-    display: table; /* Supaya border-bottom hanya sepanjang teks */
+    display: table;
 }
 
 .content-box, .conclusion-box {
@@ -111,33 +137,71 @@ nav ul li a:hover {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    text-align: center; /* Konten di dalam box menjadi rata tengah */
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-/* --- Footer --- */
+/* --- Footer (Perbaikan Posisi Tengah) --- */
 footer {
     background: #2c3e50;
     color: white;
-    padding: 40px 0;
+    padding: 50px 0;
     width: 100%;
-    text-align: center; /* Memastikan teks di tengah */
+    text-align: center;
 }
 
-footer p {
-    margin-bottom: 10px;
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Responsif Mobile */
+/* --- Tombol WhatsApp Melayang --- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1001;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+/* --- Responsif Mobile --- */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         gap: 15px;
     }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        padding: 5px 10px;
+    }
+
+    .hero-sites {
+        height: 300px; /* Lebih pendek di HP */
+    }
+
     .hero-content h1 {
         font-size: 1.8rem;
     }
-    .container {
-        width: 90%;
+
+    .title {
+        font-size: 1.6rem;
     }
 }
